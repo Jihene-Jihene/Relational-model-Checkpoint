@@ -1,0 +1,59 @@
++-------------------+
+|      Hotels       |
++-------------------+
+| Hotel_ID (PK)     |
+| Name              |
+| Address           |
+| Phone_Number      |
++-------------------+
+          |
+          | 1
+          |
+          | 0..*
++-------------------+
+|      Rooms        |
++-------------------+
+| Room_ID (PK)      |
+| Room_Number       |
+| Type              |
+| Price             |
+| Hotel_ID (FK)     |
++-------------------+
+          |
+          | 1
+          |
+          | 0..*
++-------------------+
+|   Reservations     |
++-------------------+
+| Reservation_ID (PK)|
+| Check_In_Date      |
+| Check_Out_Date     |
+| Room_ID (FK)       |
+| Guest_ID (FK)      |
++-------------------+
+          |
+          | 0..*
+          |
+          | 1
++-------------------+
+|      Guests       |
++-------------------+
+| Guest_ID (PK)     |
+| First_Name        |
+| Last_Name         |
+| Email             |
+| Phone_Number      |
++-------------------+
+          |
+          | 1
+          |
+          | 0..*
++-------------------+
+|     Payments      |
++-------------------+
+| Payment_ID (PK)   |
+| Amount            |
+| Payment_Date      |
+| Reservation_ID (FK)|
++-------------------+

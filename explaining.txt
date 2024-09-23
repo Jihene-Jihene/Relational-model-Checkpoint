@@ -1,0 +1,72 @@
+Relational Diagram Structure
+
++Hotel
+
+Table Name: Hotels
+Attributes:
+Hotel_ID (Primary Key)
+Name
+Address
+Phone_Number
+
++Room
+
+Table Name: Rooms
+Attributes:
+Room_ID (Primary Key)
+Room_Number
+Type
+Price
+Hotel_ID (Foreign Key referencing Hotels.Hotel_ID)
+
++Guest
+
+Table Name: Guests
+Attributes:
+Guest_ID (Primary Key)
+First_Name
+Last_Name
+Email
+Phone_Number
+
+
++Reservation
+
+Table Name: Reservations
+Attributes:
+Reservation_ID (Primary Key)
+Check_In_Date
+Check_Out_Date
+Room_ID (Foreign Key referencing Rooms.Room_ID)
+Guest_ID (Foreign Key referencing Guests.Guest_ID)
+
++Payment
+
+Table Name: Payments
+Attributes:
+Payment_ID (Primary Key)
+Amount
+Payment_Date
+Reservation_ID (Foreign Key referencing Reservations.Reservation_ID)
+
+**Relationships
+
+-Hotels to Rooms:
+
+One hotel can have many rooms.
+Relationship Type: One-to-Many (Hotels → Rooms)
+
+-Rooms to Reservations:
+
+One room can be reserved multiple times (at different dates).
+Relationship Type: One-to-Many (Rooms → Reservations)
+
+-Guests to Reservations:
+
+One guest can have multiple reservations.
+Relationship Type: One-to-Many (Guests → Reservations)
+
+-Reservations to Payments:
+
+One reservation can have one or more payments (if there are installments).
+Relationship Type: One-to-Many (Reservations → Payments)
